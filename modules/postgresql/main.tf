@@ -29,7 +29,7 @@ locals {
   iam_users = {
     for user in var.iam_users : user.id => {
       email         = user.email,
-      is_account_sa = trimsuffix(user.email, "gserviceaccount.com") == user.email ? false : true
+      is_account_sa = trimsuffix(user.email, ".iam.gserviceaccount.com") == user.email ? false : true
     }
   }
 
